@@ -6,33 +6,25 @@ function App(){
   const [currentScore,setCurrentScore]=useState(0)
   const [character,setCharacter]=useState('')
   const [length,setLength]=useState(1)
+  const [input,setInput]=useState(false)
   const generateCharacter=()=>{
     const c='QWERTYUIOPASDFGHJKLZXCVBNM';
     setCharacter(c[Math.floor(Math.random()*c.length)])
   }
 
+  const firstInput=(e)=>{
+    
+  }
   const handleInput=(e)=>{
     if(e.value==character){
-      setLength(length+1)
-      if(length==20){
-        if(maxScore>=currentScore){
-          if(maxScore==null){
-            localStorage.setItem('maxScore',currentScore)
-          }
-          setCharacter('Success')
-        }
-        else{
-          setCharacter('Failure')
-        }
+      if(length==1){
+        firstInput()
+        
       }
-      else{
-        generateCharacter()
+      else if(length<20){
+          
       }
     }
-    else{
-      setCurrentScore(currentScore+0.5)
-    }
-    console.log(currentScore,character,e.value)
   }
 
   useEffect(()=>{
